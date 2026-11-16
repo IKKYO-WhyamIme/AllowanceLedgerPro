@@ -5,11 +5,13 @@ You can manage your pocket money with this app.
 
 Here are main features : 
 
-- *record your pocket money*
-- *record your income amount*
-- *record your balance*
-- *check how much you spent in a day, a week, a month, and a year*
-- *check average amount spent*
+- *Record your pocket money*
+- *Record your income amount*
+- *Record your balance*
+- *Check how much you spent in a day, a week, a month, and a year*
+- *Check average amount spent*
+- *Change its theme*
+- *Supports English and Japanese*
 
 and more...
 
