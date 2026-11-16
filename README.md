@@ -1,6 +1,6 @@
 # AllowanceLedgerPro
 I made an allowance ledger with Gemini.
-It's almost made by AI, so there're many comments in that code.
+This code is written by AI, so there're many comments in that code. I'm apologize.
 You can manage your pocket money with this app.
 
 Here are main features : 
