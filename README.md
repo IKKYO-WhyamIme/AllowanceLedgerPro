@@ -13,6 +13,6 @@ Here are main features :
 
 and more...
 
-This app is free because building a subscription system is a hassle, so you can manage pocket money without worrying about money.
+This app is free because building a subscription system is a hassle, so you can manage money without worrying about money.
 
 I'm not a native English speaker, but I hope you can understand and use this app. Thanks for reading this♡
