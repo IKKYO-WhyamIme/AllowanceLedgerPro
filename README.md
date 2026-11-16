@@ -5,11 +5,12 @@ You can manage your pocket money with this app.
 
 Here are main features : 
 
-*record your pocket money*
-*record your income amount*
-*record your balance*
-*check how much you spent in a day, a week, a month, and a year*
-*check average amount spent*
+- *record your pocket money*
+- *record your income amount*
+- *record your balance*
+- *check how much you spent in a day, a week, a month, and a year*
+- *check average amount spent*
+
 and more...
 
 This app is free because building a subscription system is a hassle, so you can manage pocket money without worrying about money.
