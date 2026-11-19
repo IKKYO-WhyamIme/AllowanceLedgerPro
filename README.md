@@ -1,6 +1,5 @@
 # AllowanceLedgerPro
 I made an allowance ledger with Gemini.
-This code is written by AI, so there're many comments in that code. I'm apologize.
 You can manage your pocket money with this app.
 
 Here are main features : 
@@ -14,6 +13,9 @@ Here are main features :
 - *Supports English and Japanese*
 
 and more...
+
+**Good News**
+Since your data is saved on a local storage, you can use this safely!
 
 This app is free because building a subscription system is a hassle, so you can manage money without worrying about money.
 
