@@ -17,7 +17,7 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             touch-action: manipulation;
-            min-height: 100vh;
+            min-height: 100dvh;
             transition: background 0.5s ease;
             user-select: none;
             -webkit-user-select: none;
@@ -47,10 +47,11 @@
         }
 
         .liquid-glass-nav {
-            background: rgba(15, 23, 42, 0.85);
+            background: rgba(15, 23, 42, 0.92);
             backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
             border-top: 1px solid rgba(255, 255, 255, 0.15);
+            padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
         }
 
         @keyframes floatBlob1 {
@@ -134,12 +135,12 @@
         .layout-kiosk {
             max-width: 100%;
             width: 100%;
-            height: 100vh;
+            height: 100dvh;
             border-radius: 0;
         }
     </style>
 </head>
-<body id="app-body" class="min-h-screen flex justify-center items-center p-0 text-slate-800 relative overflow-hidden" style="background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #312e81 100%);">
+<body id="app-body" class="min-h-[100dvh] flex justify-center items-center p-0 text-slate-800 relative overflow-hidden" style="background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #312e81 100%);">
 
     <!-- 背景リキッドライトエフェクト -->
     <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
@@ -370,8 +371,8 @@
         </main>
 
         <!-- テーマ変更モーダル -->
-        <div id="theme-modal-overlay" class="absolute inset-0 bg-slate-950/60 backdrop-blur-sm z-30 opacity-0 pointer-events-none transition-opacity duration-300" onclick="closeThemeModal()"></div>
-        <div id="theme-modal" class="absolute bottom-0 left-0 right-0 bg-slate-900/90 backdrop-blur-2xl text-white rounded-t-3xl shadow-2xl z-50 transform translate-y-full transition-transform duration-300 ease-out flex flex-col border-t border-white/20 p-5 space-y-4">
+        <div id="theme-modal-overlay" class="fixed inset-0 bg-slate-950/60 backdrop-blur-sm z-30 opacity-0 pointer-events-none transition-opacity duration-300" onclick="closeThemeModal()"></div>
+        <div id="theme-modal" class="fixed bottom-0 left-0 right-0 bg-slate-900/95 backdrop-blur-2xl text-white rounded-t-3xl shadow-2xl z-40 transform translate-y-full transition-transform duration-300 ease-out flex flex-col border-t border-white/20 p-5 pb-24 space-y-4">
             <div class="w-12 h-1.5 bg-white/30 rounded-full mx-auto shrink-0"></div>
             <div class="flex justify-between items-center border-b border-white/10 pb-3">
                 <h3 class="text-base font-bold text-white flex items-center space-x-2">
@@ -423,8 +424,8 @@
         </div>
 
         <!-- 日付入力・履歴モーダル -->
-        <div id="modal-overlay" class="absolute inset-0 bg-slate-950/60 backdrop-blur-sm z-30 opacity-0 pointer-events-none transition-opacity duration-300" onclick="closeModal()"></div>
-        <div id="modal" class="absolute bottom-0 left-0 right-0 bg-slate-900/90 backdrop-blur-2xl text-white rounded-t-3xl shadow-2xl z-50 transform translate-y-full transition-transform duration-300 ease-out flex flex-col max-h-[85%] border-t border-white/20">
+        <div id="modal-overlay" class="fixed inset-0 bg-slate-950/60 backdrop-blur-sm z-30 opacity-0 pointer-events-none transition-opacity duration-300" onclick="closeModal()"></div>
+        <div id="modal" class="fixed bottom-0 left-0 right-0 bg-slate-900/95 backdrop-blur-2xl text-white rounded-t-3xl shadow-2xl z-40 transform translate-y-full transition-transform duration-300 ease-out flex flex-col max-h-[88dvh] border-t border-white/20">
             
             <div class="w-12 h-1.5 bg-white/30 rounded-full mx-auto my-3 shrink-0"></div>
 
@@ -437,7 +438,7 @@
                 </button>
             </div>
 
-            <div class="p-5 overflow-y-auto space-y-5 hide-scrollbar flex-1">
+            <div class="p-5 pb-24 overflow-y-auto space-y-5 hide-scrollbar flex-1">
                 <!-- 1日の使用金額サマリー -->
                 <div class="bg-white/10 backdrop-blur-md p-3.5 rounded-2xl border border-white/15 grid grid-cols-3 gap-2 text-center shadow-inner">
                     <div class="bg-rose-500/15 rounded-xl p-2 border border-rose-500/30">
@@ -502,8 +503,8 @@
         </div>
 
         <!-- 管理者設定モーダル (Kiosk Admin Panel) -->
-        <div id="admin-modal-overlay" class="absolute inset-0 bg-slate-950/70 backdrop-blur-md z-50 opacity-0 pointer-events-none transition-opacity duration-300" onclick="closeAdminModal()"></div>
-        <div id="admin-modal" class="absolute bottom-0 left-0 right-0 bg-slate-900/95 backdrop-blur-2xl text-white rounded-t-3xl shadow-2xl z-50 transform translate-y-full transition-transform duration-300 ease-out flex flex-col border-t border-amber-500/30 p-5 space-y-4 max-h-[90%] overflow-y-auto hide-scrollbar">
+        <div id="admin-modal-overlay" class="fixed inset-0 bg-slate-950/70 backdrop-blur-md z-30 opacity-0 pointer-events-none transition-opacity duration-300" onclick="closeAdminModal()"></div>
+        <div id="admin-modal" class="fixed bottom-0 left-0 right-0 bg-slate-900/95 backdrop-blur-2xl text-white rounded-t-3xl shadow-2xl z-40 transform translate-y-full transition-transform duration-300 ease-out flex flex-col border-t border-amber-500/30 p-5 pb-24 space-y-4 max-h-[90dvh] overflow-y-auto hide-scrollbar">
             <div class="w-12 h-1.5 bg-amber-500/40 rounded-full mx-auto shrink-0"></div>
             <div class="flex justify-between items-center border-b border-white/10 pb-3">
                 <h3 class="text-base font-bold text-amber-300 flex items-center space-x-2">
@@ -569,7 +570,7 @@
         </div>
 
         <!-- 無操作リセット警告トースト -->
-        <div id="idle-warning-toast" class="absolute top-16 left-4 right-4 bg-amber-500/90 backdrop-blur-md border border-amber-300 text-slate-950 p-3 rounded-2xl shadow-2xl z-50 flex items-center justify-between opacity-0 pointer-events-none transition-all duration-300 transform -translate-y-4">
+        <div id="idle-warning-toast" class="fixed top-16 left-4 right-4 bg-amber-500/90 backdrop-blur-md border border-amber-300 text-slate-950 p-3 rounded-2xl shadow-2xl z-50 flex items-center justify-between opacity-0 pointer-events-none transition-all duration-300 transform -translate-y-4">
             <div class="flex items-center space-x-2">
                 <svg class="w-5 h-5 animate-bounce shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
                     <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/>
@@ -583,27 +584,27 @@
             </button>
         </div>
 
-        <!-- 下部常時固定ナビゲーションバー -->
-        <nav class="liquid-glass-nav px-6 py-3 flex justify-around items-center fixed bottom-0 left-0 right-0 z-40 shadow-2xl border-t border-white/20 backdrop-blur-2xl shrink-0">
-            <button id="nav-calendar" onclick="switchTab('calendar')" class="flex flex-col items-center space-y-1 text-indigo-400 font-bold transition duration-300 transform tap-bounce scale-105">
-                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
-                    <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
-                    <line x1="16" x2="16" y1="2" y2="6"/>
-                    <line x1="8" x2="8" y1="2" y2="6"/>
-                    <line x1="3" x2="21" y1="10" y2="10"/>
-                </svg>
-                <span class="text-xs tracking-wide" data-i18n="navCalendar">カレンダー</span>
-            </button>
-            <button id="nav-stats" onclick="switchTab('stats')" class="flex flex-col items-center space-y-1 text-slate-400 font-medium hover:text-slate-200 transition duration-300 transform tap-bounce">
-                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M3 3v18h18"/>
-                    <path d="m19 9-5 5-4-4-3 3"/>
-                </svg>
-                <span class="text-xs tracking-wide" data-i18n="navStats">収支データ</span>
-            </button>
-        </nav>
-
     </div>
+
+    <!-- 下部常時固定ナビゲーションバー（最前面固定） -->
+    <nav class="liquid-glass-nav px-6 pt-3 flex justify-around items-center fixed bottom-0 left-0 right-0 z-[60] shadow-2xl border-t border-white/20 backdrop-blur-2xl">
+        <button id="nav-calendar" onclick="closeAllModals(); switchTab('calendar')" class="flex flex-col items-center space-y-1 text-indigo-400 font-bold transition duration-300 transform tap-bounce scale-105">
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
+                <line x1="16" x2="16" y1="2" y2="6"/>
+                <line x1="8" x2="8" y1="2" y2="6"/>
+                <line x1="3" x2="21" y1="10" y2="10"/>
+            </svg>
+            <span class="text-xs tracking-wide" data-i18n="navCalendar">カレンダー</span>
+        </button>
+        <button id="nav-stats" onclick="closeAllModals(); switchTab('stats')" class="flex flex-col items-center space-y-1 text-slate-400 font-medium hover:text-slate-200 transition duration-300 transform tap-bounce">
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 3v18h18"/>
+                <path d="m19 9-5 5-4-4-3 3"/>
+            </svg>
+            <span class="text-xs tracking-wide" data-i18n="navStats">収支データ</span>
+        </button>
+    </nav>
 
     <script>
         /**
@@ -859,7 +860,6 @@
 
         function applyLanguage() {
             document.documentElement.lang = appState.lang;
-            // ボタンには次に切り替わる言語を表示
             document.getElementById('lang-label').textContent = appState.lang === 'ja' ? 'EN' : '日本語';
 
             document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -875,7 +875,6 @@
             document.getElementById('btn-theme').title = t('tooltipTheme');
             document.getElementById('btn-admin').title = t('tooltipAdmin');
 
-            // 曜日ラベル生成
             const weekdayEl = document.getElementById('weekday-labels');
             if (weekdayEl) {
                 const days = t('weekdays');
@@ -887,7 +886,6 @@
                 }).join('');
             }
 
-            // クイックタグ生成
             const tagContainer = document.getElementById('quick-tags-container');
             if (tagContainer) {
                 tagContainer.innerHTML = '';
@@ -1016,11 +1014,15 @@
             if (toast) toast.classList.add('opacity-0', 'pointer-events-none', '-translate-y-4');
         }
 
-        function executeIdleReset() {
-            hideIdleWarning();
+        function closeAllModals() {
             closeModal();
             closeThemeModal();
             closeAdminModal();
+        }
+
+        function executeIdleReset() {
+            hideIdleWarning();
+            closeAllModals();
             appState.currentDate = new Date();
             switchTab('calendar');
             renderCalendar();
@@ -1045,6 +1047,8 @@
         }
 
         function openAdminModal() {
+            closeModal();
+            closeThemeModal();
             document.getElementById('admin-idle-seconds').value = appState.idleSeconds;
             document.getElementById('admin-pin-input').value = appState.adminPin;
 
@@ -1094,6 +1098,8 @@
         }
 
         window.openThemeModal = function() {
+            closeModal();
+            closeAdminModal();
             document.getElementById('theme-modal-overlay').classList.remove('opacity-0', 'pointer-events-none');
             document.getElementById('theme-modal').classList.remove('translate-y-full');
         };
@@ -1123,6 +1129,17 @@
             const saveBtn = document.getElementById('save-tx-btn');
             if (saveBtn) {
                 saveBtn.className = `w-full py-3 bg-gradient-to-r ${theme.btnGrad} text-white font-bold text-sm rounded-xl shadow-lg active:scale-95 transition mt-2 border border-white/20`;
+            }
+
+            // アクティブなナビゲーションボタンのテーマ色反映
+            const navCal = document.getElementById('nav-calendar');
+            const navStats = document.getElementById('nav-stats');
+            if (navCal && navStats) {
+                if (appState.activeTab === 'calendar') {
+                    navCal.className = `flex flex-col items-center space-y-1 ${theme.activeNav} font-bold transition duration-300 transform scale-110`;
+                } else {
+                    navStats.className = `flex flex-col items-center space-y-1 ${theme.activeNav} font-bold transition duration-300 transform scale-110`;
+                }
             }
 
             if (animate) {
@@ -1296,6 +1313,8 @@
         }
 
         window.openModal = function(dateKey) {
+            closeThemeModal();
+            closeAdminModal();
             appState.selectedDateString = dateKey;
             appState.editingTxId = null;
             document.getElementById('modal-date-title').textContent = formatDateDisplay(dateKey);
@@ -1584,3 +1603,4 @@
     </script>
 </body>
 </html>
+
