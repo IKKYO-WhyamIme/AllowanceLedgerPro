@@ -16,8 +16,7 @@ Here are main features :
 
 and more...
 
-**Important**
-
+**Important :**
 Since your data is saved on a local storage, you can use this safely!
 
 This app is free because building a subscription system is a hassle, so you can manage money without worrying about money.
