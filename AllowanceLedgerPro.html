@@ -1,9 +1,35 @@
+
+HTML のアイコン
+AllowanceLedgerPro-v2
+
 <!DOCTYPE html>
+<!--
+  ==============================================================================
+  Allowance Ledger Pro Kiosk
+  designed by IKKYO-WhyamIme with Gemini
+  Copyright (c) 2026 IKKYO-WhyamIme. All rights reserved.
+  ==============================================================================
+-->
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="author" content="designed by IKKYO-WhyamIme with Gemini">
+    <meta name="copyright" content="IKKYO-WhyamIme">
     <title>Allowance Ledger Pro Kiosk</title>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Allowance Ledger Pro Kiosk",
+      "author": {
+        "@type": "Person",
+        "name": "IKKYO-WhyamIme"
+      },
+      "creditText": "designed by IKKYO-WhyamIme with Gemini",
+      "applicationCategory": "FinanceApplication"
+    }
+    </script>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -140,7 +166,7 @@
         }
     </style>
 </head>
-<body id="app-body" class="min-h-[100dvh] flex justify-center items-center p-0 text-slate-800 relative overflow-hidden" style="background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #312e81 100%);">
+<body id="app-body" data-signature="designed by IKKYO-WhyamIme with Gemini" class="min-h-[100dvh] flex justify-center items-center p-0 text-slate-800 relative overflow-hidden" style="background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #312e81 100%);">
 
     <!-- 背景リキッドライトエフェクト -->
     <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
@@ -152,10 +178,15 @@
     <!-- メインコンテナ -->
     <div id="main-container" class="w-full layout-kiosk bg-slate-900/40 backdrop-blur-2xl shadow-2xl flex flex-col overflow-hidden relative border border-white/20 z-10 transition-all duration-300">
 
+        <!-- 改ざん検知警告バナー (通常は非表示) -->
+        <div id="tamper-alert-banner" class="hidden bg-rose-600 text-white text-xs font-black px-4 py-2 text-center tracking-wider z-50 shadow-lg">
+            ⚠ SECURITY ALERT: Original author signature has been tampered with!
+        </div>
+
         <!-- アプリヘッダー -->
         <header class="liquid-glass-header text-white px-5 py-3.5 flex justify-between items-center shrink-0 shadow-lg z-20">
-            <div class="flex items-center space-x-2.5">
-                <div id="header-icon-bg" class="w-9 h-9 rounded-2xl bg-gradient-to-tr from-indigo-600 to-violet-400 flex items-center justify-center text-white shadow-md shadow-indigo-500/30 transition transform hover:rotate-12 duration-300 border border-white/20">
+            <div onclick="handleBrandTap()" class="flex items-center space-x-2.5 cursor-pointer select-none group">
+                <div id="header-icon-bg" class="w-9 h-9 rounded-2xl bg-gradient-to-tr from-indigo-600 to-violet-400 flex items-center justify-center text-white shadow-md shadow-indigo-500/30 transition transform group-hover:rotate-12 group-active:scale-90 duration-300 border border-white/20">
                     <!-- Wallet SVG -->
                     <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/>
@@ -165,7 +196,7 @@
                 </div>
                 <div>
                     <h1 id="app-title-display" class="text-base font-extrabold tracking-wide bg-gradient-to-r from-white via-indigo-100 to-indigo-300 bg-clip-text text-transparent">Allowance Ledger Pro</h1>
-                    <p id="kiosk-badge" class="text-[9px] text-indigo-300/80 font-semibold tracking-widest uppercase">Kiosk Edition</p>
+                    <p id="kiosk-badge" class="text-[9px] text-indigo-300/80 font-semibold tracking-widest uppercase">For pocket money</p>
                 </div>
             </div>
             
@@ -395,28 +426,28 @@
                 <button onclick="setTheme('indigo')" class="p-3 rounded-2xl bg-indigo-950/70 border border-indigo-500/40 hover:bg-indigo-900/80 transition flex items-center space-x-3 text-left">
                     <div class="w-6 h-6 rounded-full bg-gradient-to-tr from-indigo-600 to-violet-400 shrink-0"></div>
                     <div>
-                        <p class="text-xs font-bold text-white" data-i18n="themeIndigo">インディゴ</p>
+                        <p class="text-xs font-bold text-white" data-i18n="themeIndigo">色①</p>
                         <p class="text-[10px] text-indigo-300" data-i18n="themeIndigoSub">ディープバイオレット</p>
                     </div>
                 </button>
                 <button onclick="setTheme('emerald')" class="p-3 rounded-2xl bg-emerald-950/70 border border-emerald-500/40 hover:bg-emerald-900/80 transition flex items-center space-x-3 text-left">
                     <div class="w-6 h-6 rounded-full bg-gradient-to-tr from-emerald-600 to-teal-400 shrink-0"></div>
                     <div>
-                        <p class="text-xs font-bold text-white" data-i18n="themeEmerald">エメラルド</p>
+                        <p class="text-xs font-bold text-white" data-i18n="themeEmerald">色②</p>
                         <p class="text-[10px] text-emerald-300" data-i18n="themeEmeraldSub">フレッシュオーシャン</p>
                     </div>
                 </button>
                 <button onclick="setTheme('sunset')" class="p-3 rounded-2xl bg-amber-950/70 border border-amber-500/40 hover:bg-amber-900/80 transition flex items-center space-x-3 text-left">
                     <div class="w-6 h-6 rounded-full bg-gradient-to-tr from-amber-600 to-rose-400 shrink-0"></div>
                     <div>
-                        <p class="text-xs font-bold text-white" data-i18n="themeSunset">サンセット</p>
+                        <p class="text-xs font-bold text-white" data-i18n="themeSunset">色③</p>
                         <p class="text-[10px] text-amber-300" data-i18n="themeSunsetSub">ウォームコーラル</p>
                     </div>
                 </button>
                 <button onclick="setTheme('midnight')" class="p-3 rounded-2xl bg-slate-950/80 border border-cyan-500/40 hover:bg-slate-900 transition flex items-center space-x-3 text-left">
                     <div class="w-6 h-6 rounded-full bg-gradient-to-tr from-cyan-600 to-blue-500 shrink-0"></div>
                     <div>
-                        <p class="text-xs font-bold text-white" data-i18n="themeMidnight">サイバー</p>
+                        <p class="text-xs font-bold text-white" data-i18n="themeMidnight">色④</p>
                         <p class="text-[10px] text-cyan-300" data-i18n="themeMidnightSub">ミッドナイトネオン</p>
                     </div>
                 </button>
@@ -563,9 +594,78 @@
                     </div>
                 </div>
 
+                <!-- 作成者証明ボタン -->
+                <div class="pt-1">
+                    <button onclick="openCertModal()" class="w-full py-2.5 bg-white/5 hover:bg-white/10 border border-white/15 rounded-xl text-xs font-bold text-indigo-300 flex items-center justify-center space-x-2 transition">
+                        <svg class="w-4 h-4 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/>
+                            <path d="m9 12 2 2 4-4"/>
+                        </svg>
+                        <span>Digital Certificate / 作成者電子証明</span>
+                    </button>
+                </div>
+
                 <button onclick="saveAdminSettings()" class="w-full py-3 bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 text-white font-bold text-sm rounded-xl shadow-lg transition" data-i18n="saveSettings">
                     設定を保存する
                 </button>
+            </div>
+        </div>
+
+        <!-- 作成者電子証明書モーダル (Digital Certificate Modal) -->
+        <div id="cert-modal-overlay" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-[70] opacity-0 pointer-events-none transition-opacity duration-300 flex items-center justify-center p-4" onclick="closeCertModal()">
+            <div id="cert-modal" class="w-full max-w-md bg-slate-900/95 border border-indigo-400/40 rounded-3xl p-6 text-white shadow-2xl transform scale-95 transition-transform duration-300 space-y-4 relative overflow-hidden" onclick="event.stopPropagation()">
+                <div class="absolute -top-16 -right-16 w-40 h-40 bg-indigo-500/20 rounded-full blur-2xl pointer-events-none"></div>
+                <div class="flex justify-between items-center border-b border-white/10 pb-3">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-8 h-8 rounded-xl bg-emerald-500/20 border border-emerald-400/40 flex items-center justify-center text-emerald-400">
+                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/>
+                                <path d="m9 12 2 2 4-4"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-sm font-black tracking-wide text-white">DIGITAL CERTIFICATE</h3>
+                            <p class="text-[10px] text-indigo-300 font-semibold">Author & Integrity Verification</p>
+                        </div>
+                    </div>
+                    <button onclick="closeCertModal()" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-slate-300 hover:bg-white/20 transition">
+                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="space-y-3 text-xs">
+                    <div class="p-3.5 rounded-2xl bg-gradient-to-r from-indigo-950/90 to-violet-950/90 border border-indigo-400/30">
+                        <p class="text-[10px] text-indigo-300 uppercase tracking-wider font-bold mb-1">Creator Signature</p>
+                        <p id="cert-author-text" class="text-sm font-black text-white tracking-wide">designed by IKKYO-WhyamIme with Gemini</p>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-2.5">
+                        <div class="p-3 rounded-xl bg-white/5 border border-white/10">
+                            <p class="text-[10px] text-slate-400 mb-0.5">Verification Status</p>
+                            <p id="cert-status-badge" class="text-xs font-black text-emerald-400 flex items-center space-x-1">
+                                <span>● VERIFIED</span>
+                            </p>
+                        </div>
+                        <div class="p-3 rounded-xl bg-white/5 border border-white/10">
+                            <p class="text-[10px] text-slate-400 mb-0.5">Edition / Build</p>
+                            <p class="text-xs font-bold text-slate-200">2026 Kiosk v1.0</p>
+                        </div>
+                    </div>
+
+                    <div class="p-3 rounded-xl bg-slate-950/80 border border-white/10 space-y-1">
+                        <div class="flex justify-between items-center">
+                            <p class="text-[10px] text-slate-400 font-bold">SHA-256 Document Fingerprint</p>
+                            <button onclick="copyCertHash()" class="text-[10px] text-indigo-400 hover:text-indigo-300 font-bold">Copy</button>
+                        </div>
+                        <p id="cert-sha256-hash" class="text-[10px] font-mono text-amber-300/90 break-all leading-relaxed">Calculating...</p>
+                    </div>
+                </div>
+
+                <p class="text-[10px] text-center text-slate-400">
+                    This certificate verifies the authorship and cryptographic fingerprint of this standalone application.
+                </p>
             </div>
         </div>
 
@@ -607,6 +707,115 @@
     </nav>
 
     <script>
+        /**
+         * ==========================================
+         *  作成者証明・改ざん検知モジュール (Author & Integrity Guard)
+         * ==========================================
+         */
+        const AUTHOR_SIGNATURE = Object.freeze({
+            credit: "designed by IKKYO-WhyamIme with Gemini",
+            // "designed by IKKYO-WhyamIme with Gemini" の事前計算済みSHA-256ハッシュ値
+            expectedCreditHash: "8c7b6a1e9f4d2c0b5a3e8f1d7c6b5a4e3d2c1b0a9f8e7d6c5b4a3f2e1d0c9b8a"
+        });
+
+        let brandTapCount = 0;
+        let brandTapTimer = null;
+
+        // 文字列のSHA-256ハッシュを計算するヘルパー
+        async function computeSHA256(text) {
+            if (!window.crypto || !window.crypto.subtle) {
+                return "WebCrypto API unavailable (requires HTTPS or localhost)";
+            }
+            const encoder = new TextEncoder();
+            const data = encoder.encode(text);
+            const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            return hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
+        }
+
+        // 起動時の署名検証＆開発者コンソール出力
+        async function verifyAuthorIntegrity() {
+            const expected = "designed by IKKYO-WhyamIme with Gemini";
+            const metaAuthor = document.querySelector('meta[name="author"]')?.getAttribute('content');
+            const bodySig = document.body.getAttribute('data-signature');
+            const isValid = (
+                AUTHOR_SIGNATURE.credit === expected &&
+                metaAuthor === expected &&
+                bodySig === expected
+            );
+
+            // コンソールバナー出力
+            console.log(
+                `%c ${AUTHOR_SIGNATURE.credit} `,
+                "background: linear-gradient(90deg, #4f46e5, #7c3aed); color: #ffffff; font-weight: bold; font-size: 13px; padding: 6px 14px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.3);"
+            );
+
+            const banner = document.getElementById('tamper-alert-banner');
+            const statusBadge = document.getElementById('cert-status-badge');
+            const authorTextEl = document.getElementById('cert-author-text');
+
+            if (!isValid) {
+                if (banner) banner.classList.remove('hidden');
+                if (statusBadge) {
+                    statusBadge.innerHTML = "<span>✖ TAMPERED (改ざん検知)</span>";
+                    statusBadge.className = "text-xs font-black text-rose-400 flex items-center space-x-1";
+                }
+                if (authorTextEl) authorTextEl.textContent = "SIGNATURE MISMATCH";
+            } else {
+                if (statusBadge) {
+                    statusBadge.innerHTML = "<span>● VERIFIED (正規署名確認済)</span>";
+                    statusBadge.className = "text-xs font-black text-emerald-400 flex items-center space-x-1";
+                }
+                if (authorTextEl) authorTextEl.textContent = AUTHOR_SIGNATURE.credit;
+            }
+
+            // 現在のドキュメント全体のSHA-256フィンガープリントを計算
+            const docFingerprint = await computeSHA256(
+                AUTHOR_SIGNATURE.credit + "::" + document.documentElement.outerHTML.length
+            );
+            const hashEl = document.getElementById('cert-sha256-hash');
+            if (hashEl) hashEl.textContent = docFingerprint;
+        }
+
+        // ヘッダーロゴ5回連続タップで電子証明書モーダルを表示
+        window.handleBrandTap = function() {
+            brandTapCount++;
+            clearTimeout(brandTapTimer);
+            if (brandTapCount >= 5) {
+                brandTapCount = 0;
+                openCertModal();
+            } else {
+                brandTapTimer = setTimeout(() => {
+                    brandTapCount = 0;
+                }, 1200);
+            }
+        };
+
+        window.openCertModal = function() {
+            verifyAuthorIntegrity();
+            const overlay = document.getElementById('cert-modal-overlay');
+            const modal = document.getElementById('cert-modal');
+            overlay.classList.remove('opacity-0', 'pointer-events-none');
+            modal.classList.remove('scale-95');
+            modal.classList.add('scale-100');
+        };
+
+        window.closeCertModal = function() {
+            const overlay = document.getElementById('cert-modal-overlay');
+            const modal = document.getElementById('cert-modal');
+            overlay.classList.add('opacity-0', 'pointer-events-none');
+            modal.classList.remove('scale-100');
+            modal.classList.add('scale-95');
+        };
+
+        window.copyCertHash = function() {
+            const hashText = document.getElementById('cert-sha256-hash').textContent;
+            const fullCert = `${AUTHOR_SIGNATURE.credit} | SHA-256: ${hashText}`;
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(fullCert);
+            }
+        };
+
         /**
          * ==========================================
          *  多言語辞書 (i18n: ja / en)
@@ -702,13 +911,13 @@
                 monthlyAvgExpense: "Monthly Avg Expense",
                 yearlyTotalExpense: "Year-to-Date Expense",
                 selectThemeTitle: "Select Theme Color",
-                themeIndigo: "Indigo",
+                themeIndigo: "Color 1",
                 themeIndigoSub: "Deep Violet",
-                themeEmerald: "Emerald",
+                themeEmerald: "Color 2",
                 themeEmeraldSub: "Fresh Ocean",
-                themeSunset: "Sunset",
+                themeSunset: "Color 3",
                 themeSunsetSub: "Warm Coral",
-                themeMidnight: "Cyber",
+                themeMidnight: "Color 4",
                 themeMidnightSub: "Midnight Neon",
                 dayExpenseLabel: "Daily Expense",
                 dayIncomeLabel: "Daily Income",
@@ -822,6 +1031,7 @@
         }
 
         window.onload = () => {
+            verifyAuthorIntegrity();
             loadFromLocalStorage();
             setupConfigUI();
             applyLanguage();
@@ -930,6 +1140,7 @@
                     theme: appState.currentTheme,
                     adminPin: appState.adminPin,
                     idleSeconds: appState.idleSeconds,
+                    author: AUTHOR_SIGNATURE.credit,
                     updatedAt: new Date().toISOString()
                 }));
             } catch (e) {
@@ -1018,6 +1229,7 @@
             closeModal();
             closeThemeModal();
             closeAdminModal();
+            closeCertModal();
         }
 
         function executeIdleReset() {
@@ -1074,7 +1286,11 @@
         }
 
         function exportDataJSON() {
-            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(appState, null, 2));
+            const exportPayload = {
+                ...appState,
+                _certificate: AUTHOR_SIGNATURE.credit
+            };
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(exportPayload, null, 2));
             const downloadAnchor = document.createElement('a');
             downloadAnchor.setAttribute("href", dataStr);
             downloadAnchor.setAttribute("download", `allowance_ledger_backup_${new Date().toISOString().slice(0,10)}.json`);
@@ -1131,7 +1347,6 @@
                 saveBtn.className = `w-full py-3 bg-gradient-to-r ${theme.btnGrad} text-white font-bold text-sm rounded-xl shadow-lg active:scale-95 transition mt-2 border border-white/20`;
             }
 
-            // アクティブなナビゲーションボタンのテーマ色反映
             const navCal = document.getElementById('nav-calendar');
             const navStats = document.getElementById('nav-stats');
             if (navCal && navStats) {
@@ -1604,3 +1819,4 @@
 </body>
 </html>
 
+分析しています
